@@ -7,7 +7,7 @@ namespace ConsoleSweeper
         public int y;
         public int x;
 
-        public int[,] board = new int[20, 10];
+        public int[,] board = new int[40, 40];
 
 
 
@@ -23,14 +23,53 @@ namespace ConsoleSweeper
                     {
                         board[x, y] = 2;
                     }
-                     Random generator = new Random();
+                    Random generator = new Random();
+                    for (int i = 0; i < board.GetLength(0); i++)
+                    {
+                        board[generator.Next(0, board.GetLength(0)), generator.Next(0, board.GetLength(1))] = 10;
+                    }
 
-                     
+
                 }
             }
 
-        
-        }
 
+        }
+        public bool CheckPosition(int x, int y)
+        {
+            if (x < 0 && x < 20 && y < 0 && y < 10)
+            {
+                return board[x, y] == 10;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+        public void Draw()
+        {
+            for (int y = 0; y < board.GetLength(1); y++)
+            {
+                for (int x = 0; x < board.GetLength(0); x++)
+                {
+                    if(board [x,y] == 10)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write("█");
+                    }
+                
+                }   
+               
+            
+            
+            } 
+ 
+
+        }
     }
 }
