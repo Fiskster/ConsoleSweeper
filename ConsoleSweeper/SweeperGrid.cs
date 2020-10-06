@@ -23,14 +23,18 @@ namespace ConsoleSweeper
                     {
                         board[x, y] = 2;
                     }
-                    Random generator = new Random();
-                    for (int i = 0; i < board.GetLength(0); i++)
-                    {
-                        board[generator.Next(0, board.GetLength(0)), generator.Next(0, board.GetLength(1))] = 10;
-                    }
+
+
 
 
                 }
+            }
+
+            Random generator = new Random();
+
+            for (int i = 0; i < 10; i++)
+            {
+                board[generator.Next(0, board.GetLength(0)), generator.Next(0, board.GetLength(1))] = 10;
             }
 
 
@@ -54,7 +58,7 @@ namespace ConsoleSweeper
             {
                 for (int x = 0; x < board.GetLength(0); x++)
                 {
-                    if(board [x,y] == 10)
+                    if (board[x, y] == 10)
                     {
                         Console.Write("*");
                     }
@@ -62,13 +66,12 @@ namespace ConsoleSweeper
                     {
                         Console.Write("█");
                     }
-                
-                }   
-               
-            
-            
-            } 
- 
+                }
+
+                System.Console.WriteLine();
+
+            }
+
 
         }
     }
